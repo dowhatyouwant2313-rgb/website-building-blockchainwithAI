@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Dr. Alex Chen - AI Training & Coaching Expert</title>
+    <meta name="description" content="Learn about Dr. Alex Chen's journey in AI, philosophy on training and coaching, and proven methodology for transforming professionals into AI experts.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.min.js"></script>
+    
+    <style>
+        :root {
+            --navy: #1a1d29;
+            --electric-blue: #00d4ff;
+            --soft-white: #fafafa;
+            --warm-gray: #6b7280;
+            --success-green: #10b981;
+            --warning-amber: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--navy);
+            color: var(--soft-white);
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--electric-blue) 0%, #0099cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--electric-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--electric-blue) 0%, #0099cc 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--electric-blue);
+            border-radius: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: linear-gradient(to bottom, var(--electric-blue), transparent);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .skill-bar {
+            background: rgba(255, 255, 255, 0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            background: linear-gradient(90deg, var(--electric-blue) 0%, #0099cc 100%);
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .philosophy-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .philosophy-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--electric-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-navy/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-bold gradient-text">Dr. Alex Chen</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-electric-blue">Home</a>
+                    <a href="about.html" class="nav-link text-electric-blue">About</a>
+                    <a href="services.html" class="nav-link text-white hover:text-electric-blue">Services</a>
+                    <a href="insights.html" class="nav-link text-white hover:text-electric-blue">Insights</a>
+                </div>
+                <button class="btn-primary">Book Consultation</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
+                            <span class="gradient-text">About</span><br>
+                            Dr. Alex Chen
+                        </h1>
+                        <p class="text-xl text-warm-gray leading-relaxed">
+                            A passionate AI educator and coach dedicated to transforming professionals into AI leaders. 
+                            With over a decade of experience in artificial intelligence and machine learning, 
+                            I've helped hundreds of individuals and organizations unlock their AI potential.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text">10+</div>
+                            <div class="text-sm text-warm-gray">Years Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text">500+</div>
+                            <div class="text-sm text-warm-gray">Professionals Trained</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text">50+</div>
+                            <div class="text-sm text-warm-gray">AI Projects</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="resources/hero-placeholder.png" alt="Your Professional Photo - Replace this placeholder with your own image" 
+                         class="w-full h-auto rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Journey -->
+    <section class="py-20 fade-in">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">My Journey into AI</h2>
+                <p class="text-xl text-warm-gray">From curious student to AI educator - a path of continuous learning and sharing</p>
+            </div>
+            
+            <div class="space-y-12">
+                <div class="timeline-item">
+                    <div class="glass-card p-8 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="text-2xl font-bold gradient-text mr-4">2014</div>
+                            <h3 class="text-2xl font-semibold">The Beginning</h3>
+                        </div>
+                        <p class="text-warm-gray leading-relaxed">
+                            Started my PhD in Computer Science at MIT, focusing on machine learning algorithms. 
+                            This is where my fascination with artificial intelligence truly began. I spent countless 
+                            nights researching neural networks and their applications in real-world problems.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="glass-card p-8 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="text-2xl font-bold gradient-text mr-4">2017</div>
+                            <h3 class="text-2xl font-semibold">Industry Breakthrough</h3>
+                        </div>
+                        <p class="text-warm-gray leading-relaxed">
+                            Joined Google AI as a Research Scientist, working on computer vision projects. 
+                            Led a team that developed innovative image recognition algorithms that improved 
+                            accuracy by 15% over existing methods. This experience taught me the power of 
+                            collaborative AI development.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="glass-card p-8 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="text-2xl font-bold gradient-text mr-4">2020</div>
+                            <h3 class="text-2xl font-semibold">Teaching Discovery</h3>
+                        </div>
+                        <p class="text-warm-gray leading-relaxed">
+                            Began teaching AI courses at Stanford as an adjunct professor. Discovered my 
+                            passion for education when I saw students have their "aha" moments. The joy 
+                            of watching someone understand a complex concept for the first time was 
+                            incredibly rewarding.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="glass-card p-8 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="text-2xl font-bold gradient-text mr-4">2022</div>
+                            <h3 class="text-2xl font-semibold">Coaching Evolution</h3>
+                        </div>
+                        <p class="text-warm-gray leading-relaxed">
+                            Launched my AI coaching practice after realizing that professionals needed 
+                            personalized guidance beyond traditional classroom learning. Developed 
+                            methodologies that combine theoretical knowledge with practical, hands-on experience.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="glass-card p-8 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="text-2xl font-bold gradient-text mr-4">2024</div>
+                            <h3 class="text-2xl font-semibold">Global Impact</h3>
+                        </div>
+                        <p class="text-warm-gray leading-relaxed">
+                            Today, I've trained over 500 professionals across 15 countries, helping them 
+                            transition into AI roles, advance their careers, and lead AI initiatives in 
+                            their organizations. Every success story motivates me to reach more people.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="py-20 fade-in">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">My Teaching Philosophy</h2>
+                <p class="text-xl text-warm-gray max-w-3xl mx-auto">
+                    Education is not about transferring information – it's about transformation. 
+                    I believe in empowering professionals with both the knowledge and confidence to lead in the AI era.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="philosophy-card hover-lift">
+                    <div class="w-16 h-16 bg-electric-blue/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Personalized Learning</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        Every professional has unique goals, backgrounds, and learning styles. 
+                        I customize each training program to match individual needs and career objectives.
+                    </p>
+                </div>
+                
+                <div class="philosophy-card hover-lift">
+                    <div class="w-16 h-16 bg-success-green/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-success-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Hands-On Practice</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        Theory without practice is just information. Every concept is reinforced with 
+                        real-world projects and case studies that build practical skills and confidence.
+                    </p>
+                </div>
+                
+                <div class="philosophy-card hover-lift">
+                    <div class="w-16 h-16 bg-warning-amber/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-warning-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Immediate Application</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        Learning is most effective when immediately applied. I help students implement 
+                        AI solutions in their current roles, creating immediate value for their organizations.
+                    </p>
+                </div>
+                
+                <div class="philosophy-card hover-lift">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Continuous Learning</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        AI evolves rapidly. I teach students how to stay current with emerging trends 
+                        and technologies, creating a foundation for lifelong learning in the field.
+                    </p>
+                </div>
+                
+                <div class="philosophy-card hover-lift">
+                    <div class="w-16 h-16 bg-pink-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Collaborative Growth</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        Learning is enhanced through community. I foster collaborative environments 
+                        where students learn from each other and build professional networks.
+                    </p>
+                </div>
+                
+                <div class="philosophy-card hover-lift">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Ethical AI</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        With great power comes great responsibility. I emphasize the ethical implications 
+                        of AI and teach students to develop solutions that benefit humanity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Expertise -->
+    <section class="py-20 fade-in">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Technical Expertise</h2>
+                <p class="text-xl text-warm-gray">Deep knowledge across the AI/ML spectrum</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold">Machine Learning</h3>
+                            <span class="text-electric-blue font-semibold">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold">Deep Learning</h3>
+                            <span class="text-electric-blue font-semibold">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold">Natural Language Processing</h3>
+                            <span class="text-electric-blue font-semibold">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold">Computer Vision</h3>
+                            <span class="text-electric-blue font-semibold">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold">Python & TensorFlow</h3>
+                            <span class="text-electric-blue font-semibold">98%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 98%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold">PyTorch & JAX</h3>
+                            <span class="text-electric-blue font-semibold">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold">MLOps & Cloud AI</h3>
+                            <span class="text-electric-blue font-semibold">87%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 87%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold">AI Strategy & Consulting</h3>
+                            <span class="text-electric-blue font-semibold">93%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 93%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials -->
+    <section class="py-20 fade-in">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Credentials & Certifications</h2>
+                <p class="text-xl text-warm-gray">Professional qualifications and continuous learning achievements</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 hover-lift">
+                    <h3 class="text-2xl font-bold mb-6 gradient-text">Education</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">PhD in Computer Science</h4>
+                            <p class="text-warm-gray mb-1">Massachusetts Institute of Technology (MIT)</p>
+                            <p class="text-sm text-warm-gray">Specialization: Machine Learning & AI</p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">M.S. in Data Science</h4>
+                            <p class="text-warm-gray mb-1">Stanford University</p>
+                            <p class="text-sm text-warm-gray">Focus: Statistical Learning & Deep Learning</p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">B.S. in Computer Engineering</h4>
+                            <p class="text-warm-gray mb-1">UC Berkeley</p>
+                            <p class="text-sm text-warm-gray">Magna Cum Laude</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 hover-lift">
+                    <h3 class="text-2xl font-bold mb-6 gradient-text">Certifications</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Google Cloud Professional ML Engineer</h4>
+                            <p class="text-sm text-warm-gray">Advanced ML implementation on Google Cloud</p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">AWS Certified Machine Learning Specialist</h4>
+                            <p class="text-sm text-warm-gray">ML solutions on Amazon Web Services</p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">TensorFlow Developer Certificate</h4>
+                            <p class="text-sm text-warm-gray">Advanced TensorFlow development skills</p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Certified Analytics Professional</h4>
+                            <p class="text-sm text-warm-gray">End-to-end analytics process certification</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 fade-in">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="glass-card p-12">
+                <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Career?</h2>
+                <p class="text-xl text-warm-gray mb-8 max-w-2xl mx-auto">
+                    Let's work together to unlock your AI potential. Whether you're just starting 
+                    or looking to advance your existing skills, I'm here to guide your journey.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="btn-primary text-lg px-8 py-4">Book Free Consultation</button>
+                    <button class="btn-primary text-lg px-8 py-4 bg-transparent border-2 border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-navy">Download My Story</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="gradient-text text-xl font-bold mb-4">Dr. Alex Chen</div>
+            <p class="text-warm-gray mb-6">AI Training & Coaching Expert</p>
+            <div class="text-sm text-warm-gray">
+                © 2024 Dr. Alex Chen. All rights reserved. | Transforming careers through AI education.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Animate skill bars
+                        const skillBars = entry.target.querySelectorAll('.skill-progress');
+                        skillBars.forEach(bar => {
+                            const width = bar.style.width;
+                            bar.style.width = '0%';
+                            setTimeout(() => {
+                                bar.style.width = width;
+                            }, 200);
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Button interactions
+            document.querySelectorAll('.btn-primary').forEach(button => {
+                button.addEventListener('click', function() {
+                    const buttonText = this.textContent.trim();
+                    if (buttonText.includes('Consultation')) {
+                        alert('Opening consultation booking calendar...');
+                    } else if (buttonText.includes('Story')) {
+                        alert('Downloading Dr. Chen\'s story PDF...');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

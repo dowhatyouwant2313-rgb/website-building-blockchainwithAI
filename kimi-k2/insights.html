@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Insights & Contact - Dr. Alex Chen</title>
+    <meta name="description" content="Latest insights on AI trends, educational content, and direct contact with Dr. Alex Chen for consultations and speaking engagements.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <style>
+        :root {
+            --navy: #1a1d29;
+            --electric-blue: #00d4ff;
+            --soft-white: #fafafa;
+            --warm-gray: #6b7280;
+            --success-green: #10b981;
+            --warning-amber: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--navy);
+            color: var(--soft-white);
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--electric-blue) 0%, #0099cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--electric-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--electric-blue) 0%, #0099cc 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .blog-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--electric-blue);
+            transform: translateY(-4px);
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+        
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--soft-white);
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .form-input::placeholder {
+            color: var(--warm-gray);
+        }
+        
+        .trend-chart {
+            height: 300px;
+            margin: 2rem 0;
+        }
+        
+        .newsletter-signup {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.1) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--warm-gray);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--electric-blue);
+            color: var(--navy);
+            border-color: var(--electric-blue);
+            transform: translateY(-2px);
+        }
+        
+        .calendar-widget {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        
+        .time-slot {
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .time-slot:hover {
+            background: var(--electric-blue);
+            color: var(--navy);
+            border-color: var(--electric-blue);
+        }
+        
+        .time-slot.selected {
+            background: var(--electric-blue);
+            color: var(--navy);
+            border-color: var(--electric-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-navy/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-bold gradient-text">Dr. Alex Chen</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-electric-blue">Home</a>
+                    <a href="about.html" class="nav-link text-white hover:text-electric-blue">About</a>
+                    <a href="services.html" class="nav-link text-white hover:text-electric-blue">Services</a>
+                    <a href="insights.html" class="nav-link text-electric-blue">Insights</a>
+                </div>
+                <button class="btn-primary">Book Consultation</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl lg:text-6xl font-bold mb-6">
+                    <span class="gradient-text">AI Insights</span> & Trends
+                </h1>
+                <p class="text-xl text-warm-gray max-w-3xl mx-auto leading-relaxed">
+                    Stay ahead of the curve with the latest developments in artificial intelligence, 
+                    machine learning, and the future of technology. Insights from my experience training hundreds of AI professionals.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Trends Visualization -->
+    <section class="py-20 fade-in">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">AI Adoption Trends 2024</h2>
+                <p class="text-xl text-warm-gray">Real data from my training programs and industry observations</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold mb-6">Industries Adopting AI</h3>
+                    <div id="industry-chart" class="trend-chart"></div>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold mb-6">Skills in High Demand</h3>
+                    <div id="skills-chart" class="trend-chart"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Blog Posts -->
+    <section class="py-20 fade-in">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Latest Insights</h2>
+                <p class="text-xl text-warm-gray">Thought leadership on AI trends, career advice, and industry analysis</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="blog-card p-6 hover-lift">
+                    <img src="resources/consulting-visual.png" alt="The Future of AI in Healthcare" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="flex items-center mb-3">
+                        <span class="bg-electric-blue/20 text-electric-blue px-3 py-1 rounded-full text-sm">Healthcare</span>
+                        <span class="text-warm-gray text-sm ml-3">December 5, 2024</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">The Future of AI in Healthcare: Beyond Diagnostics</h3>
+                    <p class="text-warm-gray mb-4">Exploring how AI is revolutionizing patient care, drug discovery, and personalized medicine. What healthcare professionals need to know.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-electric-blue">8 min read</span>
+                        <button class="text-electric-blue hover:text-white transition-colors">Read More →</button>
+                    </div>
+                </article>
+                
+                <article class="blog-card p-6 hover-lift">
+                    <img src="resources/success-visual.png" alt="Building AI Teams" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="flex items-center mb-3">
+                        <span class="bg-success-green/20 text-success-green px-3 py-1 rounded-full text-sm">Leadership</span>
+                        <span class="text-warm-gray text-sm ml-3">December 3, 2024</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Building High-Performance AI Teams: A Manager's Guide</h3>
+                    <p class="text-warm-gray mb-4">Key strategies for recruiting, training, and retaining top AI talent. Lessons from working with 50+ organizations.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-electric-blue">12 min read</span>
+                        <button class="text-electric-blue hover:text-white transition-colors">Read More →</button>
+                    </div>
+                </article>
+                
+                <article class="blog-card p-6 hover-lift">
+                    <img src="resources/training-workshop.png" alt="AI Ethics" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="flex items-center mb-3">
+                        <span class="bg-warning-amber/20 text-warning-amber px-3 py-1 rounded-full text-sm">Ethics</span>
+                        <span class="text-warm-gray text-sm ml-3">November 30, 2024</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI Ethics in Practice: Beyond the Buzzwords</h3>
+                    <p class="text-warm-gray mb-4">Practical frameworks for implementing ethical AI in your organization. Real examples from successful AI deployments.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-electric-blue">10 min read</span>
+                        <button class="text-electric-blue hover:text-white transition-colors">Read More →</button>
+                    </div>
+                </article>
+                
+                <article class="blog-card p-6 hover-lift">
+                    <img src="resources/consulting-visual.png" alt="NLP Breakthrough" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="flex items-center mb-3">
+                        <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">Technology</span>
+                        <span class="text-warm-gray text-sm ml-3">November 28, 2024</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">The Latest NLP Breakthroughs You Need to Know</h3>
+                    <p class="text-warm-gray mb-4">From GPT-4 to custom language models, here's what's changing in natural language processing and how it affects your business.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-electric-blue">15 min read</span>
+                        <button class="text-electric-blue hover:text-white transition-colors">Read More →</button>
+                    </div>
+                </article>
+                
+                <article class="blog-card p-6 hover-lift">
+                    <img src="resources/success-visual.png" alt="AI Career Transition" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="flex items-center mb-3">
+                        <span class="bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full text-sm">Career</span>
+                        <span class="text-warm-gray text-sm ml-3">November 25, 2024</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">From Traditional IT to AI: A Career Transition Roadmap</h3>
+                    <p class="text-warm-gray mb-4">Step-by-step guide for IT professionals looking to transition into AI roles. Based on successful career changes I've guided.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-electric-blue">20 min read</span>
+                        <button class="text-electric-blue hover:text-white transition-colors">Read More →</button>
+                    </div>
+                </article>
+                
+                <article class="blog-card p-6 hover-lift">
+                    <img src="resources/training-workshop.png" alt="MLOps Best Practices" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="flex items-center mb-3">
+                        <span class="bg-indigo-500/20 text-indigo-400 px-3 py-1 rounded-full text-sm">Operations</span>
+                        <span class="text-warm-gray text-sm ml-3">November 22, 2024</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">MLOps Best Practices: From Development to Production</h3>
+                    <p class="text-warm-gray mb-4">Essential practices for deploying, monitoring, and maintaining machine learning models at scale. What every AI team should know.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-electric-blue">18 min read</span>
+                        <button class="text-electric-blue hover:text-white transition-colors">Read More →</button>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="btn-primary text-lg px-8 py-4">View All Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="py-20 fade-in">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="newsletter-signup p-12 text-center">
+                <h2 class="text-4xl font-bold mb-6">Stay Updated with AI Insights</h2>
+                <p class="text-xl text-warm-gray mb-8">
+                    Get weekly AI trends, career tips, and exclusive content delivered to your inbox.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email" class="form-input flex-1">
+                    <button class="btn-primary whitespace-nowrap">Subscribe</button>
+                </div>
+                <p class="text-sm text-warm-gray mt-4">
+                    Join 5,000+ AI professionals who trust my insights. No spam, unsubscribe anytime.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking -->
+    <section class="py-20 fade-in">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-xl text-warm-gray">Ready to start your AI journey? Let's discuss your goals.</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="contact-form p-8">
+                    <h3 class="text-2xl font-bold mb-6">Send a Message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">First Name</label>
+                                <input type="text" class="form-input" placeholder="John" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Last Name</label>
+                                <input type="text" class="form-input" placeholder="Doe" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" class="form-input" placeholder="john@example.com" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Company</label>
+                            <input type="text" class="form-input" placeholder="Your Company">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">How can I help?</label>
+                            <select class="form-input" required>
+                                <option value="">Select an option</option>
+                                <option value="individual">Individual Coaching</option>
+                                <option value="team">Team Training</option>
+                                <option value="corporate">Corporate Strategy</option>
+                                <option value="speaking">Speaking Engagement</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea class="form-input" rows="4" placeholder="Tell me about your AI goals and challenges..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary w-full text-lg py-4">Send Message</button>
+                    </form>
+                </div>
+                
+                <!-- Calendar Widget -->
+                <div class="calendar-widget">
+                    <h3 class="text-2xl font-bold mb-6">Book a Free Consultation</h3>
+                    <p class="text-warm-gray mb-6">
+                        Schedule a 30-minute call to discuss your AI training needs and career goals.
+                    </p>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-4">Available Time Slots</h4>
+                        <div class="grid grid-cols-2 gap-3" id="time-slots">
+                            <div class="time-slot" data-time="9:00 AM">Today, 9:00 AM</div>
+                            <div class="time-slot" data-time="2:00 PM">Today, 2:00 PM</div>
+                            <div class="time-slot" data-time="10:00 AM">Tomorrow, 10:00 AM</div>
+                            <div class="time-slot" data-time="3:00 PM">Tomorrow, 3:00 PM</div>
+                            <div class="time-slot" data-time="11:00 AM">Friday, 11:00 AM</div>
+                            <div class="time-slot" data-time="4:00 PM">Friday, 4:00 PM</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-4">Consultation Type</h4>
+                        <div class="space-y-3">
+                            <label class="flex items-center">
+                                <input type="radio" name="consultation-type" value="career" class="mr-3" checked>
+                                <span>Career Transition to AI</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="consultation-type" value="team" class="mr-3">
+                                <span>Team Training Program</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="consultation-type" value="strategy" class="mr-3">
+                                <span>Corporate AI Strategy</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary w-full text-lg py-4" id="book-call">Book Selected Time</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speaking Engagements -->
+    <section class="py-20 fade-in">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Speaking & Workshops</h2>
+                <p class="text-xl text-warm-gray">Invite Dr. Chen to speak at your next event or conduct a workshop</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-8 text-center hover-lift">
+                    <div class="w-16 h-16 bg-electric-blue/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Keynote Speaking</h3>
+                    <p class="text-warm-gray mb-6">Inspiring keynotes on AI trends, future of work, and digital transformation for conferences and corporate events.</p>
+                    <button class="btn-primary">Request Speaking Kit</button>
+                </div>
+                
+                <div class="glass-card p-8 text-center hover-lift">
+                    <div class="w-16 h-16 bg-success-green/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-success-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Executive Workshops</h3>
+                    <p class="text-warm-gray mb-6">Interactive workshops for leadership teams on AI strategy, implementation roadmaps, and organizational transformation.</p>
+                    <button class="btn-primary">View Workshop Topics</button>
+                </div>
+                
+                <div class="glass-card p-8 text-center hover-lift">
+                    <div class="w-16 h-16 bg-warning-amber/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-warning-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Team Training</h3>
+                    <p class="text-warm-gray mb-6">Hands-on training sessions for technical teams on specific AI technologies, tools, and implementation practices.</p>
+                    <button class="btn-primary">Explore Training Options</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media & Contact Info -->
+    <section class="py-20 fade-in">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">Connect With Me</h2>
+            <p class="text-xl text-warm-gray mb-12">
+                Follow my AI journey and stay connected across all platforms
+            </p>
+            
+            <div class="flex justify-center space-x-6 mb-12">
+                <a href="#" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24c6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.568 8.16c-.169 1.858-.896 3.433-2.173 4.71C13.938 14.146 12.4 14.8 10.76 14.8c-.204 0-.41-.016-.615-.049.22-.031.425-.078.615-.141.934-.307 1.65-.932 2.153-1.875.502-.943.752-2.023.752-3.24 0-.174-.008-.346-.023-.516.169.031.331.078.485.141.934.307 1.65.932 2.153 1.875.502.943.752 2.023.752 3.24 0 .174-.008.346-.023.516z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-warm-gray mb-4">Prefer email? Reach me directly at</p>
+                <a href="mailto:alex@ai-training-expert.com" class="text-electric-blue hover:text-white text-lg font-semibold transition-colors">
+                    alex@ai-training-expert.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="gradient-text text-xl font-bold mb-4">Dr. Alex Chen</div>
+            <p class="text-warm-gray mb-6">AI Training & Coaching Expert</p>
+            <div class="text-sm text-warm-gray">
+                © 2024 Dr. Alex Chen. All rights reserved. | Transforming careers through AI education.
+            </div>
+        </div>
+    </footer>
+
+    <script src="insights.js"></script>
+</body>
+</html>
