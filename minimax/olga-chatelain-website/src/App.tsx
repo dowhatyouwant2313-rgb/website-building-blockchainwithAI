@@ -171,7 +171,7 @@ function App() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/digital_transformation_hero.png" 
+            src="./images/digital_transformation_hero.png" 
             alt="Digital Transformation and AI Technology"
             className="w-full h-full object-cover opacity-10"
           />
@@ -269,7 +269,7 @@ function App() {
               <div className="text-center">
                 <div className="relative inline-block">
                   <img 
-                    src="/images/professional-portrait-replacement.jpeg" 
+                    src="./images/professional-portrait-replacement.jpeg" 
                     alt="Dr. Olga Chatelain - AI & Blockchain Expert & Digital Transformation - Professional Portrait"
                     className="w-64 h-64 object-cover rounded-2xl shadow-orange border-4 border-warmOrange"
                   />
@@ -521,7 +521,7 @@ function App() {
             {/* Professional Portrait for Experience */}
             <div className="mb-8">
               <img 
-                src="/images/professional-portrait-replacement.jpeg" 
+                src="./images/professional-portrait-replacement.jpeg" 
                 alt="Dr. Olga Chatelain - Professional Experience in AI and Digital Transformation"
                 className="w-48 h-48 object-cover rounded-2xl shadow-orange mx-auto border-4 border-warmOrange"
               />
@@ -646,7 +646,7 @@ function App() {
             {/* Thought Leadership Image */}
             <div className="mb-8">
               <img 
-                src="/images/thought_leadership.png" 
+                src="./images/thought_leadership.png" 
                 alt="Thought Leadership in AI and Digital Transformation"
                 className="w-64 h-48 object-cover rounded-xl shadow-orange mx-auto border-4 border-warmOrange"
               />
@@ -772,7 +772,7 @@ function App() {
             {/* Contact Consultation Image */}
             <div className="mb-8">
               <img 
-                src="/images/contact_consultation.png" 
+                src="./images/contact_consultation.png" 
                 alt="Professional Consultation and Digital Transformation"
                 className="w-64 h-48 object-cover rounded-xl shadow-orange mx-auto border-4 border-warmOrange"
               />
