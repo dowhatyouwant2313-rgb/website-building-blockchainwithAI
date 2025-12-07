@@ -139,11 +139,6 @@
                     align-items: center;
                     gap: 6px;
                 }
-                #vote-widget .vote-count {
-                    font-size: 12px;
-                    color: #666;
-                    margin-bottom: 12px;
-                }
                 #vote-widget button {
                     width: 100%;
                     padding: 10px 16px;
@@ -194,34 +189,34 @@
                 @media (max-width: 640px) {
                     #vote-widget {
                         bottom: 10px;
-                        right: 10px;
                         left: 10px;
+                        right: auto;
+                        width: 140px;
                         min-width: unset;
-                        max-width: 280px;
-                        margin: 0 auto;
-                        padding: 10px 12px;
+                        padding: 10px;
+                        border-radius: 10px;
                     }
                     #vote-widget h3 {
-                        font-size: 11px;
-                        margin: 0 0 6px 0;
-                        gap: 4px;
+                        font-size: 10px;
+                        margin: 0 0 8px 0;
+                        gap: 3px;
+                        line-height: 1.2;
+                        word-wrap: break-word;
                     }
                     #vote-widget h3 span {
-                        font-size: 14px !important;
-                    }
-                    #vote-widget .vote-count {
-                        font-size: 10px;
-                        margin-bottom: 6px;
+                        font-size: 12px !important;
+                        flex-shrink: 0;
                     }
                     #vote-widget button {
-                        padding: 8px 12px;
-                        font-size: 12px;
-                        margin-bottom: 6px;
+                        padding: 6px 8px;
+                        font-size: 11px;
+                        margin-bottom: 5px;
+                        border-radius: 5px;
                     }
                     #vote-widget .voted-msg,
                     #vote-widget .info-msg {
-                        font-size: 9px;
-                        margin-top: 2px;
+                        font-size: 8px;
+                        margin-top: 3px;
                     }
                 }
             </style>
@@ -229,15 +224,12 @@
                 <span style="font-size: 18px;">🗳️</span>
                 ${IMPLEMENTATIONS[currentImpl]}
             </h3>
-            <div class="vote-count">
-                ${currentVotes} vote${currentVotes !== 1 ? 's' : ''} (browser)
-            </div>
             <button class="vote-btn" id="vote-btn" ${hasUserVoted ? 'disabled' : ''}>
-                ${hasUserVoted ? '✓ Voted!' : '👍 Vote for this'}
+                ${hasUserVoted ? '✓ Voted!' : '👍 Vote'}
             </button>
-            ${hasUserVoted ? '<div class="voted-msg">Thank you! Email sent.</div>' : '<div class="info-msg">Your vote will be emailed</div>'}
+            ${hasUserVoted ? '<div class="voted-msg">Thanks for Voting!</div>' : '<div class="info-msg">Vote will be emailed</div>'}
             <button class="back-btn" id="back-btn">
-                ← See All Implementations
+                ← See All
             </button>
         `;
 
@@ -255,13 +247,10 @@
                 
                 if (success) {
                     // Save locally and mark as voted
-                    const newCount = saveLocalVote(currentImpl);
+                    saveLocalVote(currentImpl);
                     markAsVoted(currentImpl);
                     
                     this.textContent = '✓ Voted!';
-                    
-                    document.querySelector('.vote-count').textContent = 
-                        `${newCount} vote${newCount !== 1 ? 's' : ''} (browser)`;
                     
                     const existingMsg = document.querySelector('.info-msg');
                     if (existingMsg) {
@@ -270,13 +259,13 @@
                     
                     const votedMsg = document.createElement('div');
                     votedMsg.className = 'voted-msg';
-                    votedMsg.textContent = 'Thank you! Email sent.';
+                    votedMsg.textContent = 'Thanks for Voting!';
                     this.parentNode.insertBefore(votedMsg, this.nextSibling);
                 } else {
                     this.disabled = false;
-                    this.textContent = '❌ Failed - Try again';
+                    this.textContent = '❌ Failed';
                     setTimeout(() => {
-                        this.textContent = '👍 Vote for this';
+                        this.textContent = '👍 Vote';
                     }, 2000);
                 }
             }
