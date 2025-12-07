@@ -195,8 +195,33 @@
                     #vote-widget {
                         bottom: 10px;
                         right: 10px;
-                        min-width: 200px;
-                        padding: 12px 16px;
+                        left: 10px;
+                        min-width: unset;
+                        max-width: 280px;
+                        margin: 0 auto;
+                        padding: 10px 12px;
+                    }
+                    #vote-widget h3 {
+                        font-size: 11px;
+                        margin: 0 0 6px 0;
+                        gap: 4px;
+                    }
+                    #vote-widget h3 span {
+                        font-size: 14px !important;
+                    }
+                    #vote-widget .vote-count {
+                        font-size: 10px;
+                        margin-bottom: 6px;
+                    }
+                    #vote-widget button {
+                        padding: 8px 12px;
+                        font-size: 12px;
+                        margin-bottom: 6px;
+                    }
+                    #vote-widget .voted-msg,
+                    #vote-widget .info-msg {
+                        font-size: 9px;
+                        margin-top: 2px;
                     }
                 }
             </style>
