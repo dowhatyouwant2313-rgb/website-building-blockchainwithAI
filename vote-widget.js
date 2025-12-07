@@ -16,11 +16,13 @@
     // Get current implementation from path
     function getCurrentImplementation() {
         const path = window.location.pathname;
+        console.log('[Vote Widget] Current path:', path);
         if (path.includes('/gemini/')) return 'gemini';
         if (path.includes('/claude/')) return 'claude';
         if (path.includes('/minimax/')) return 'minimax';
         if (path.includes('/chatgpt/')) return 'chatgpt';
         if (path.includes('/kimi-k2/')) return 'kimi';
+        console.log('[Vote Widget] No implementation matched for path:', path);
         return null;
     }
 
@@ -97,7 +99,11 @@
     // Create widget HTML
     async function createWidget() {
         const currentImpl = getCurrentImplementation();
-        if (!currentImpl) return;
+        console.log('[Vote Widget] Current implementation:', currentImpl);
+        if (!currentImpl) {
+            console.log('[Vote Widget] Widget not created - no implementation detected');
+            return;
+        }
 
         const hasUserVoted = hasVoted(currentImpl);
         const allVotes = getLocalVotes();
