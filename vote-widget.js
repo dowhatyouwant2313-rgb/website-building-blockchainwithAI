@@ -189,8 +189,8 @@
                 @media (max-width: 640px) {
                     #vote-widget {
                         bottom: 10px;
-                        left: 10px;
-                        right: auto;
+                        right: 10px;
+                        left: auto;
                         width: 140px;
                         min-width: unset;
                         padding: 10px;
