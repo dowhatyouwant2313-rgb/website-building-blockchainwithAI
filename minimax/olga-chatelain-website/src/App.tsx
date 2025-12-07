@@ -323,42 +323,42 @@ function App() {
                 title: 'AI & Machine Learning',
                 description: 'GPT-based solutions, AI-powered automation, and intelligent process optimization',
                 technologies: ['GPT Integration', 'Process Automation', 'Intelligent Systems'],
-                image: '/images/ai_blockchain_tech.png'
+                image: './images/ai_blockchain_tech.png'
               },
               {
                 icon: Blocks,
                 title: 'Blockchain Technology',
                 description: 'Blockchain solutions for business processes, smart contracts, and digital innovation',
                 technologies: ['Smart Contracts', 'Digital Innovation', 'Tech Integration'],
-                image: '/images/ai_blockchain_tech.png'
+                image: './images/ai_blockchain_tech.png'
               },
               {
                 icon: TrendingUp,
                 title: 'Digital Transformation',
                 description: 'End-to-end digital transformation strategies and implementation at enterprise scale',
                 technologies: ['Strategy Design', 'Change Management', 'Technology Adoption'],
-                image: '/images/change_management.png'
+                image: './images/change_management.png'
               },
               {
                 icon: Users,
                 title: 'Executive Coaching',
                 description: 'Systematic business coaching and leadership development across international organizations',
                 technologies: ['Leadership Development', 'Team Coaching', 'Performance Assessment'],
-                image: '/images/executive_coaching.png'
+                image: './images/executive_coaching.png'
               },
               {
                 icon: Target,
                 title: 'Project Management',
                 description: 'Certified Senior Project Manager with expertise in complex, high-value projects',
                 technologies: ['PMP Certified', 'Agile Methodologies', 'Risk Management'],
-                image: '/images/project_management.png'
+                image: './images/project_management.png'
               },
               {
                 icon: Globe,
                 title: 'Cross-cultural Competence',
                 description: 'Multilingual capabilities and international business experience across 5 languages',
                 technologies: ['5 Languages', 'Global Teams', 'Cultural Integration'],
-                image: '/images/change_management.png'
+                image: './images/change_management.png'
               }
             ].map((expertise, index) => (
               <div key={index} className="bg-warmWhite p-8 rounded-xl hover:bg-veryLightOrange transition-colors group shadow-sm border border-lightOrange relative overflow-hidden">
@@ -412,7 +412,7 @@ function App() {
                   'Cross-functional Leadership Skills'
                 ],
                 icon: Users,
-                image: '/images/executive_coaching.png'
+                image: './images/executive_coaching.png'
               },
               {
                 title: 'AI Strategy Consulting',
@@ -426,7 +426,7 @@ function App() {
                   'Ethical AI Implementation'
                 ],
                 icon: Brain,
-                image: '/images/ai_strategy_consulting.png'
+                image: './images/ai_strategy_consulting.png'
               },
               {
                 title: 'Digital Transformation Workshops',
@@ -440,7 +440,7 @@ function App() {
                   'Digital Culture Development'
                 ],
                 icon: TrendingUp,
-                image: '/images/change_management.png'
+                image: './images/change_management.png'
               },
               {
                 title: 'Project Management Excellence',
@@ -454,7 +454,7 @@ function App() {
                   'Stakeholder Management'
                 ],
                 icon: Target,
-                image: '/images/project_management.png'
+                image: './images/project_management.png'
               }
             ].map((service, index) => (
               <div key={index} className="bg-warmWhite p-8 rounded-xl hover:bg-warmWhiteLighter transition-colors relative overflow-hidden">
