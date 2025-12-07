@@ -64,7 +64,7 @@ function App() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch('https://formspree.io/f/xjknevwj', {
+      const response = await fetch('https://formspree.io/f/mnnebqlb', {
         method: 'POST',
         body: formData,
         headers: {
@@ -168,7 +168,26 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warmWhite via-warmWhiteLight to-warmWhite overflow-hidden">
-        {/* Background Image */}
+        {/* Wave Pattern Background */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.03]"
+          style={{
+            backgroundImage: 'url(./images/backgrounds/wave_pattern.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        {/* AI Blockchain Elements - Floating */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.08]"
+          style={{
+            backgroundImage: 'url(./images/elements/ai_blockchain_elements.png)',
+            backgroundSize: '60%',
+            backgroundPosition: 'right bottom',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        {/* Original Hero Image */}
         <div className="absolute inset-0 z-0">
           <img 
             src="./images/digital_transformation_hero.png" 
@@ -232,8 +251,27 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-12 bg-veryLightOrange">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="about" className="py-12 bg-veryLightOrange relative overflow-hidden">
+        {/* Leadership Pyramid Background */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.04]"
+          style={{
+            backgroundImage: 'url(./images/elements/leadership_pyramid.png)',
+            backgroundSize: '40%',
+            backgroundPosition: 'left center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        {/* Geometric Hex Pattern */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.02]"
+          style={{
+            backgroundImage: 'url(./images/backgrounds/geometric_hex_pattern.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold text-warmOrange mb-4">About Dr. Olga Chatelain</h2>
             <p className="text-xl text-warmGray max-w-3xl mx-auto">
@@ -307,8 +345,27 @@ function App() {
       </section>
 
       {/* Expertise Section */}
-      <section id="expertise" className="py-20 bg-warmWhite">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="expertise" className="py-20 bg-warmWhite relative overflow-hidden">
+        {/* Network Pattern Background */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.03]"
+          style={{
+            backgroundImage: 'url(./images/backgrounds/network_pattern.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        {/* Circuit Pattern Overlay */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.02]"
+          style={{
+            backgroundImage: 'url(./images/backgrounds/circuit_pattern.png)',
+            backgroundSize: '50%',
+            backgroundPosition: 'top right',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-warmOrange mb-4">Areas of Expertise</h2>
             <p className="text-xl text-warmGray max-w-3xl mx-auto">
@@ -389,8 +446,27 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-warmWhiteLight">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="services" className="py-20 bg-warmWhiteLight relative overflow-hidden">
+        {/* Consultation Flow Background */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.05]"
+          style={{
+            backgroundImage: 'url(./images/elements/consultation_flow.png)',
+            backgroundSize: '45%',
+            backgroundPosition: 'left bottom',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        {/* Business Grid Pattern */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.02]"
+          style={{
+            backgroundImage: 'url(./images/backgrounds/business_grid.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-warmGray mb-4">Coaching & Consulting Services</h2>
             <p className="text-xl text-warmGray max-w-3xl mx-auto">
@@ -515,8 +591,27 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 bg-warmWhite">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="experience" className="py-20 bg-warmWhite relative overflow-hidden">
+        {/* Transformation Progress Background */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.04]"
+          style={{
+            backgroundImage: 'url(./images/elements/transformation_progress.png)',
+            backgroundSize: '50%',
+            backgroundPosition: 'right center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        {/* Geometric Hex Pattern */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.02]"
+          style={{
+            backgroundImage: 'url(./images/backgrounds/geometric_hex_pattern.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             {/* Professional Portrait for Experience */}
             <div className="mb-8">
@@ -778,8 +873,27 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-warmWhite">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-20 bg-warmWhite relative overflow-hidden">
+        {/* Global Connectivity Background */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.05]"
+          style={{
+            backgroundImage: 'url(./images/elements/global_connectivity.png)',
+            backgroundSize: '45%',
+            backgroundPosition: 'right bottom',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        {/* Network Pattern */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.02]"
+          style={{
+            backgroundImage: 'url(./images/backgrounds/network_pattern.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             {/* Contact Consultation Image */}
             <div className="mb-8">
